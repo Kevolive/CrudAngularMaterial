@@ -1,0 +1,67 @@
+<div class="container">
+  <mat-toolbar>
+    <span> <strong>Crear usuario</strong></span>
+    <span class="example-spacer"></span>
+
+  </mat-toolbar>
+
+  <mat-card>
+    <mat-card-content style="margin-top: 12px;">
+
+
+      <form [formGroup]="form" (ngSubmit)="addUsuario()">
+        <mat-grid-list cols="4" rowHeight="70px">
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'white'">
+            <mat-form-field class="ancho">
+              <mat-label>Usuario</mat-label>
+              <input matInput formControlName="usuario">
+            </mat-form-field>
+
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3" [rowspan]="5" [style.background]="'white'">
+          </mat-grid-tile>
+
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'white'">
+            <mat-form-field class="ancho">
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="nombre">
+            </mat-form-field>
+          </mat-grid-tile>
+
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'white'">
+            <mat-form-field class="ancho">
+              <mat-label>Identificación</mat-label>
+              <input matInput formControlName="identificacion">
+            </mat-form-field>
+          </mat-grid-tile>
+
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'white'">
+            <mat-form-field class="ancho">
+              <mat-form-field class="ancho">
+                <mat-label>Ciudad</mat-label>
+                <mat-select formControlName="ciudad">
+                  @for (ciudad of ciudades; track ciudad) {
+                    <mat-option [value]="ciudad.value">{{ciudad.viewValue}}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            </mat-form-field>
+          </mat-grid-tile>
+
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'white'">
+            <button type="submit"  mat-flat-button color="primary" style="margin-right: 10px; ">{{ isEdit ? 'Actualizar' : 'Agregar' }} </button>
+
+          </mat-grid-tile>
+
+
+
+        </mat-grid-list>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,63 @@
+<div class="container">
+  <mat-toolbar>
+    <span> <strong>Usuarios</strong></span>
+    <span class="example-spacer"></span>
+
+    <div class="example-spacer">
+      <button mat-raised-button color="primary" routerLink="/dashboard/crear-usuario">Agregar usuario</button>
+    </div>
+
+  </mat-toolbar>
+  <div class="mat-elevation-z5">
+    <table mat-table [dataSource]="dataSource" >
+
+      <!-- Columna usuario -->
+      <ng-container matColumnDef="usuario">
+        <th mat-header-cell *matHeaderCellDef> <strong>Usuario</strong> </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.usuario}} </td>
+      </ng-container>
+
+      <!-- Columna nombre -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> <strong>Nombre</strong> </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.nombre}} </td>
+      </ng-container>
+
+      <!-- Columna identificación -->
+      <ng-container matColumnDef="identificacion">
+        <th mat-header-cell *matHeaderCellDef> <strong>Identificación</strong> </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.identificacion}} </td>
+      </ng-container>
+
+      <!-- Columna ciudad -->
+      <ng-container matColumnDef="ciudad">
+        <th mat-header-cell *matHeaderCellDef> <strong>Ciudad</strong> </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.ciudad}} </td>
+      </ng-container>
+
+
+
+      <!-- Columna acciones -->
+       <!-- Creé la columna acciones para agregar el botón de editar -->
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef class="example-spacer"> <strong>Acciones</strong> </th>
+        <td mat-cell *matCellDef="let usuario">
+          <button  mat-flat-button color="primary" style="margin-right: 10px;" [routerLink]=" ['/dashboard/actualizar-usuario', usuario.id]"  >Editar</button>
+          <button  mat-flat-button color="warn" style="margin-right: 10px;" (click)="deleteUsuario(usuario.id)" >Eliminar</button>
+        </td>
+
+      </ng-container>
+
+
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [length]="100"
+                [pageSize]="10"
+                [pageSizeOptions]="[5, 10, 25]"
+                aria-label="Select page">
+  </mat-paginator>
+  </div>
+</div>
