@@ -1,6 +1,32 @@
+<div class="inicio-container">
+  <mat-toolbar color="primary" class="toolbar">
 
-<div class="container">
-  <mat-toolbar>
-    <span> <strong>Inicio de mi aplicación</strong></span>
   </mat-toolbar>
+
+  <div class="hero-section">
+    <mat-card class="hero-card" appearance="outlined">
+      <mat-card-header>
+        <div mat-card-avatar class="hero-icon">
+          <mat-icon></mat-icon>
+        </div>
+        <mat-card-title>Bienvenido a <strong>App Usuarios</strong></mat-card-title>
+        <mat-card-subtitle>
+          Gestión moderna de empleados con Angular Material
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>
+          Esta aplicación te permite realizar operaciones de <strong>crear</strong>, <strong>leer</strong>, <strong>actualizar</strong> y <strong>eliminar</strong> empleados,
+          todo con una interfaz moderna y responsiva.
+        </p>
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <button mat-raised-button color="accent" routerLink="/dashboard/usuarios">
+          Empezar ahora
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>
